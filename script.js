@@ -1,136 +1,175 @@
-const ringtones = [
-    ["Synthwave Lead", "01-Synthwave-Lead"],
-    ["Marimba Bounce", "02-Marimba-Bounce"],
-    ["Vibraphone Call", "03-Vibraphone-Call"],
-    ["Electric Guitar", "04-Electric-Guitar"],
-    ["Organ Pulse", "05-Organ-Pulse"],
-    ["Flute Morning", "06-Flute-Morning"],
-    ["Brass Signal", "07-Brass-Signal"],
-    ["Warm Strings", "08-Warm-Strings"],
-    ["Bassline Alert", "09-Bassline-Alert"],
-    ["Harp Cascade", "10-Harp-Cascade"],
-    ["Saxophone", "11-Saxophone"],
-    ["Celesta", "12-Celesta"],
-    ["Oboe", "13-Oboe"],
-    ["Synth Brass", "14-Synth-Brass"],
-    ["Final Bell", "15-Final-Bell"]
+const list = document.getElementById("ringtone-list");
+const searchInput = document.getElementById("search");
+const searchButton = document.getElementById("searchButton");
+
+let files = [];
+let audio = null;
+
+
+/*
+    These are the ONLY ringtone files that belong
+    to this project.
+
+    We deliberately keep the list explicit so that
+    random WAV files can never appear on the website.
+*/
+
+const ringtoneFiles = [
+    "01-Synthwave-Lead.wav",
+    "02-Marimba-Bounce.wav",
+    "03-Vibraphone-Call.wav",
+    "04-Electric-Guitar.wav",
+    "05-Organ-Pulse.wav",
+    "06-Flute-Morning.wav",
+    "07-Brass-Signal.wav",
+    "08-Warm-Strings.wav",
+    "09-Bassline-Alert.wav",
+    "10-Harp-Cascade.wav",
+    "11-Saxophone.wav",
+    "12-Celesta.wav",
+    "13-Oboe.wav",
+    "14-Synth-Brass.wav",
+    "15-Final-Bell.wav"
 ];
 
-const list = document.getElementById("ringtone-list");
 
-let currentFilter = "all";
+function displayName(filename) {
 
-function render(items = ringtones) {
+    return filename
+        .replace(/\.wav$/i, "")
+        .replace(/^\d+-/, "")
+        .replace(/-/g, " ");
+}
+
+
+function render(items) {
 
     list.innerHTML = "";
 
-    items.forEach((ringtone, index) => {
+    if (items.length === 0) {
 
-        const name = ringtone[0];
-        const file = ringtone[1];
+        list.innerHTML =
+            '<div class="empty">No ringtones found.</div>';
 
-        const card = document.createElement("div");
+        return;
+    }
 
-        card.className = "ringtone";
 
-        card.dataset.name = name.toLowerCase();
+    items.forEach((filename, index) => {
 
-        card.innerHTML = `
-            <div class="ringtone-number">
+        const row =
+            document.createElement("div");
+
+        row.className = "ringtone";
+
+
+        const url =
+            "WAV/" +
+            encodeURIComponent(filename);
+
+
+        row.innerHTML = `
+
+            <div class="number">
                 ${String(index + 1).padStart(2, "0")}
             </div>
 
-            <div class="ringtone-icon">
-                ♪
+            <div class="ringtone-info">
+
+                <div class="ringtone-name">
+                    ${displayName(filename)}
+                </div>
+
+                <div class="ringtone-type">
+                    WAV ringtone
+                </div>
+
             </div>
 
-            <div class="ringtone-name">
-                ${name}
-            </div>
+            <div class="actions">
 
-            <div class="ringtone-format">
-                Original ringtone
-            </div>
-
-            <div class="ringtone-actions">
-
-                <button
-                    class="preview"
-                    onclick="previewRingtone()">
+                <button type="button">
                     Preview
                 </button>
 
                 <a
-                    href="../WAV/${file}.wav"
-                    download>
-                    WAV
-                </a>
-
-                <a
-                    href="../MIDI/${file}.mid"
-                    download>
-                    MIDI
+                    href="${url}"
+                    download="${filename}">
+                    Download
                 </a>
 
             </div>
         `;
 
-        list.appendChild(card);
+
+        const preview =
+            row.querySelector("button");
+
+
+        preview.addEventListener("click", () => {
+
+            if (audio) {
+
+                audio.pause();
+
+                audio.currentTime = 0;
+            }
+
+
+            audio =
+                new Audio(url);
+
+
+            audio.play().catch(error => {
+
+                console.error(
+                    "Unable to play ringtone:",
+                    error
+                );
+
+            });
+
+        });
+
+
+        list.appendChild(row);
+
     });
+
 }
 
-let audio = null;
-
-function previewRingtone(file) {
-
-    if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-    }
-
-    audio = new Audio(`../WAV/${file}.wav`);
-
-    audio.play().catch(() => {
-        console.log("Audio playback was blocked.");
-    });
-}
 
 function searchRingtones() {
 
     const query =
-        document
-            .getElementById("search")
-            .value
-            .toLowerCase()
-            .trim();
+        searchInput.value
+            .trim()
+            .toLowerCase();
 
-    const results =
-        ringtones.filter(ringtone =>
-            ringtone[0]
+
+    const filtered =
+        files.filter(filename =>
+            displayName(filename)
                 .toLowerCase()
                 .includes(query)
         );
 
-    render(results);
+
+    render(filtered);
 }
 
-function showAll() {
 
-    currentFilter = "all";
+searchInput.addEventListener(
+    "input",
+    searchRingtones
+);
 
-    document.getElementById("search").value = "";
+searchButton.addEventListener(
+    "click",
+    searchRingtones
+);
 
-    render(ringtones);
-}
 
-function filterFormat(format) {
+files = ringtoneFiles;
 
-    currentFilter = format;
-
-    const items =
-        ringtones.filter(() => true);
-
-    render(items);
-}
-
-render();
+render(files);
