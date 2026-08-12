@@ -1,170 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>YoCoolRingtones</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YoCoolRingtones</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="page">
+<header>
+  <div class="brand">YoCoolRingtones</div>
+  <div class="tag">Original ringtones &amp; sounds</div>
+  <nav>
+    <a href="#ringtones">Ringtones</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 
-    <header>
+<div class="stripe"></div>
 
-        <div class="logo">
-            YoCoolRingtones
-        </div>
+<main>
+  <section class="intro">
+    <h1>Ringtone Library</h1>
+    <p>Preview and download the complete YoCoolRingtones collection.</p>
+  </section>
 
-        <div class="tagline">
-            Free ringtones & sounds
-        </div>
+  <section class="panel" id="ringtones">
+    <div class="panel-title">Available Ringtones</div>
+    <div class="panel-body">
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#ringtones">Ringtones</a>
-            <a href="#about">About</a>
-        </nav>
+      <div id="ringtone-list"></div>
 
-    </header>
+    </div>
+  </section>
 
+  <section class="panel" id="about">
+    <div class="panel-title">About</div>
+    <div class="panel-body">
+      YoCoolRingtones contains 15 original ringtone sounds.
+    </div>
+  </section>
+</main>
 
-    <div class="bar"></div>
-
-
-    <main>
-
-        <section id="home" class="welcome">
-
-            <h1>Ringtone Library</h1>
-
-            <p>
-                Browse, preview and download the
-                YoCoolRingtones collection.
-            </p>
-
-        </section>
-
-
-        <div class="layout">
-
-            <section id="ringtones" class="content-box">
-
-                <div class="box-header">
-                    Ringtones
-                </div>
-
-                <div class="box-body">
-
-                    <div class="search">
-
-                        <input
-                            id="search"
-                            type="text"
-                            placeholder="Search ringtones..."
-                        >
-
-                        <button id="searchButton">
-                            Search
-                        </button>
-
-                    </div>
-
-
-                    <div id="ringtone-list">
-                        Loading ringtones...
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <aside>
-
-                <div class="content-box">
-
-                    <div class="box-header">
-                        Categories
-                    </div>
-
-                    <div class="side-list">
-
-                        <a href="#ringtones">
-                            All Ringtones
-                        </a>
-
-                        <a href="#ringtones">
-                            WAV
-                        </a>
-
-                        <a href="#ringtones">
-                            MIDI
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="content-box">
-
-                    <div class="box-header">
-                        Collection
-                    </div>
-
-                    <div class="side-text">
-
-                        15 original ringtone sounds.
-
-                    </div>
-
-                </div>
-
-            </aside>
-
-        </div>
-
-
-        <section id="about" class="content-box">
-
-            <div class="box-header">
-                About
-            </div>
-
-            <div class="box-body">
-
-                <p>
-                    YoCoolRingtones is a simple collection
-                    of downloadable ringtone sounds.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-
-        <span>
-            YoCoolRingtones
-        </span>
-
-        <span>
-            © 2026
-        </span>
-
-    </footer>
-
-</div>
-
+<footer>
+  <span>YoCoolRingtones</span>
+  <span>© 2026</span>
+</footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
