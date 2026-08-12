@@ -1,0 +1,513 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: #e7e7e7;
+
+    color: #333;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 12px;
+}
+
+.wrap {
+    width: 950px;
+
+    max-width: calc(100% - 20px);
+
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+    height: 74px;
+
+    background:
+        linear-gradient(
+            #385f7e,
+            #24445e
+        );
+
+    border-bottom: 1px solid #172f40;
+
+    box-shadow:
+        0 1px 3px rgba(0,0,0,.25);
+}
+
+.header-inner {
+    height: 100%;
+
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+
+    left: 0;
+    top: 17px;
+
+    color: #fff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+.top-links {
+    position: absolute;
+
+    right: 0;
+    bottom: 15px;
+}
+
+.top-links a {
+    margin-left: 16px;
+
+    color: #dce8f0;
+
+    text-decoration: none;
+
+    font-size: 11px;
+}
+
+.top-links a:hover {
+    color: #fff;
+
+    text-decoration: underline;
+}
+
+/* NAV */
+
+.nav {
+    background: #fff;
+
+    border-bottom: 1px solid #c3c3c3;
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.08);
+}
+
+.nav .wrap {
+    padding-left: 0;
+}
+
+.nav a {
+    display: inline-block;
+
+    padding: 9px 16px;
+
+    color: #315975;
+
+    text-decoration: none;
+
+    border-right: 1px solid #ddd;
+
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #fff;
+
+    background: #315b79;
+}
+
+/* CONTENT */
+
+.content {
+    padding: 15px 0 25px;
+}
+
+/* WELCOME */
+
+.welcome {
+    padding: 22px 25px;
+
+    margin-bottom: 15px;
+
+    background:
+        linear-gradient(
+            #fff,
+            #f2f2f2
+        );
+
+    border: 1px solid #c5c5c5;
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.08);
+}
+
+.welcome h1 {
+    margin: 0 0 7px;
+
+    color: #294e69;
+
+    font-size: 24px;
+}
+
+.welcome p {
+    max-width: 650px;
+
+    margin: 0 0 15px;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            #638aaa,
+            #365f7f
+        );
+
+    border: 1px solid #294c66;
+
+    border-radius: 3px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.3);
+}
+
+.button:hover {
+    background:
+        linear-gradient(
+            #739ab9,
+            #406b8d
+        );
+}
+
+/* COLUMNS */
+
+.columns {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        220px;
+
+    gap: 15px;
+}
+
+/* PANELS */
+
+.panel {
+    margin-bottom: 15px;
+
+    background: #fff;
+
+    border: 1px solid #c3c3c3;
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.07);
+}
+
+.panel-title {
+    padding: 8px 11px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            #577b99,
+            #3d607d
+        );
+
+    border-bottom: 1px solid #2e4d65;
+
+    font-weight: bold;
+}
+
+.panel-content {
+    padding: 12px;
+}
+
+/* SEARCH */
+
+.search-box {
+    display: flex;
+
+    margin-bottom: 12px;
+}
+
+.search-box input {
+    flex: 1;
+
+    padding: 7px 8px;
+
+    border: 1px solid #bbb;
+
+    border-right: 0;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+}
+
+.search-box input:focus {
+    border-color: #668ba6;
+}
+
+.search-box button {
+    padding: 7px 12px;
+
+    color: #fff;
+
+    background: #547995;
+
+    border: 1px solid #41637b;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.search-box button:hover {
+    background: #456b87;
+}
+
+/* RINGTONES */
+
+.ringtone {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 60px;
+
+    padding: 9px;
+
+    border-top: 1px solid #ddd;
+}
+
+.ringtone:first-child {
+    border-top: 0;
+}
+
+.ringtone:hover {
+    background: #f4f7f9;
+}
+
+.ringtone-number {
+    width: 35px;
+
+    color: #999;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+.ringtone-info {
+    flex: 1;
+}
+
+.ringtone-name {
+    color: #315d7b;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.ringtone-type {
+    margin-top: 3px;
+
+    color: #999;
+
+    font-size: 10px;
+}
+
+.ringtone-actions {
+    display: flex;
+
+    gap: 5px;
+}
+
+.preview,
+.download {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 2px;
+
+    background:
+        linear-gradient(
+            #fff,
+            #e3e3e3
+        );
+
+    color: #315975;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.preview:hover,
+.download:hover {
+    background:
+        linear-gradient(
+            #fff,
+            #d4e4ef
+        );
+
+    border-color: #7593a8;
+}
+
+/* SIDEBAR */
+
+.side-links a {
+    display: block;
+
+    padding: 8px 10px;
+
+    color: #41647a;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.side-links a:hover {
+    color: #fff;
+
+    background: #527996;
+}
+
+.side-text {
+    padding: 11px;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+/* ABOUT */
+
+.about {
+    margin-top: 15px;
+}
+
+.about p {
+    margin: 5px 0 10px;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+/* FOOTER */
+
+.footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 12px 0 20px;
+
+    color: #888;
+
+    font-size: 10px;
+}
+
+.footer a {
+    color: #54748b;
+
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .wrap {
+        max-width: calc(100% - 12px);
+    }
+
+    .header {
+        height: 65px;
+    }
+
+    .logo {
+        top: 17px;
+
+        font-size: 22px;
+    }
+
+    .top-links {
+        display: none;
+    }
+
+    .columns {
+        grid-template-columns: 1fr;
+    }
+
+    .ringtone {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .ringtone-info {
+        min-width: calc(100% - 45px);
+    }
+
+    .ringtone-actions {
+        width: 100%;
+
+        margin-top: 8px;
+
+        margin-left: 35px;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        gap: 6px;
+    }
+}

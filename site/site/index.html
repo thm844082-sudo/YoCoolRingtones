@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YoCoolRingtones</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <header>
+        <div class="logo">
+            YoCoolRingtones
+        </div>
+
+        <div class="tagline">
+            Free ringtones & sounds
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#ringtones">Ringtones</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+
+    <div class="bar"></div>
+
+
+    <main>
+
+        <section id="home" class="welcome">
+
+            <h1>Ringtones</h1>
+
+            <p>
+                Browse our collection of original ringtones.
+                Preview a sound or download it to your device.
+            </p>
+
+        </section>
+
+
+        <div class="layout">
+
+            <section id="ringtones" class="content-box">
+
+                <div class="box-header">
+                    Ringtone Library
+                </div>
+
+                <div class="box-body">
+
+                    <div class="search">
+
+                        <input
+                            id="search"
+                            type="text"
+                            placeholder="Search ringtones..."
+                            oninput="searchRingtones()"
+                        >
+
+                        <button onclick="searchRingtones()">
+                            Search
+                        </button>
+
+                    </div>
+
+
+                    <div id="ringtone-list">
+
+                        <div class="loading">
+                            Loading ringtones...
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <aside>
+
+                <div class="content-box">
+
+                    <div class="box-header">
+                        Categories
+                    </div>
+
+                    <div class="side-list">
+
+                        <a href="#ringtones">
+                            All Ringtones
+                        </a>
+
+                        <a href="#ringtones">
+                            WAV
+                        </a>
+
+                        <a href="#ringtones">
+                            MIDI
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-box">
+
+                    <div class="box-header">
+                        About
+                    </div>
+
+                    <div class="side-text">
+
+                        Original sounds available
+                        for download.
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <section id="about" class="content-box about">
+
+            <div class="box-header">
+                About YoCoolRingtones
+            </div>
+
+            <div class="box-body">
+
+                <p>
+                    YoCoolRingtones provides a collection
+                    of downloadable ringtone sounds.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <span>
+            YoCoolRingtones
+        </span>
+
+        <span>
+            © 2026
+        </span>
+
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
